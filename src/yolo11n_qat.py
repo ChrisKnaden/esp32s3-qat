@@ -23,13 +23,13 @@ def report_hook(blocknum, blocksize, total):
 def qat():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     CFG_BATCHSIZE = 128
-    CFG_TRAIN_DIR = "../data/train"
+    CFG_TRAIN_DIR = "data/train"
     CFG_PLATFORM = get_target_platform("esp32s3", 8)
     EPOCH = 10  # please set a reasonable epoch number
 
     # calibration setting
     calib_steps = 32
-    cali_path = "../data/calib"
+    cali_path = "data/calib"
     #yolo11n_caib_url = "https://dl.espressif.com/public/calib_yolo11n.zip"
 
     #with zipfile.ZipFile("calib_yolo11n.zip", "r") as zip_file:
@@ -37,7 +37,7 @@ def qat():
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     ONNX_PATH = os.path.join(
-        script_dir, "yolo11n.onnx"
+        script_dir, "src/yolo11n.onnx"
     )
 
     graph = load_onnx_graph(onnx_import_file=ONNX_PATH)
