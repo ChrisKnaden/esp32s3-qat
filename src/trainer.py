@@ -180,7 +180,7 @@ class Trainer:
             device=self._device,
             validator=QuantDetectionValidator(),
         )
-        return results.box.map
+        return results.get("metrics/mAP_0.5:0.95", 0.0)
 
     def save(self, file_path: str, file_path2: str):
         """Save model to given path.

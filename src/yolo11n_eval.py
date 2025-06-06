@@ -165,9 +165,17 @@ class QuantizedModelValidator(BaseValidator):
         return stats
 
 
-class QuantDetectionValidator(DetectionValidator):
-    def __call__(self, trainer=None, model=None):
-        return QuantizedModelValidator.__call__(self, trainer, model)
+class QuantDetectionValidator(QuantizedModelValidator):
+    def __init__(self, args=None, _callbacks=None):
+        super().__init__()
+        self.args = args
+        self.callbacks = _callbacks
+        self.metrics = {}  # Required by Ultralytics
+        self.speed = {}
+        self.jdict = []
+
+    def __call__(self, *args, **kwargs):
+        return self
 
 
 class QuantPoseValidator(PoseValidator):
