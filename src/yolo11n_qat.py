@@ -37,7 +37,7 @@ def qat():
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     ONNX_PATH = os.path.join(
-        script_dir, "src/yolo11n.onnx"
+        script_dir, "yolo11n.onnx"
     )
 
     graph = load_onnx_graph(onnx_import_file=ONNX_PATH)
