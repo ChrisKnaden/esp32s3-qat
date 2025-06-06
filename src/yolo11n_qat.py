@@ -30,6 +30,7 @@ def qat():
     # calibration setting
     calib_steps = 32
     cali_path = "data/calib"
+    cali_path = "data/calib"
     #yolo11n_caib_url = "https://dl.espressif.com/public/calib_yolo11n.zip"
 
     #with zipfile.ZipFile("calib_yolo11n.zip", "r") as zip_file:
