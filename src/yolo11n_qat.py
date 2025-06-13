@@ -22,7 +22,7 @@ def report_hook(blocknum, blocksize, total):
 
 def qat():
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    CFG_BATCHSIZE = 16
+    CFG_BATCHSIZE = 1
     CFG_TRAIN_DIR = "data/train"
     CFG_PLATFORM = get_target_platform("esp32s3", 8)
     EPOCH = 10  # please set a reasonable epoch number
